@@ -7,44 +7,40 @@ package org.marcos.datosclinica;
 import java.util.List;
 import org.marcos.Entidades.Paciente;
 import org.marcos.datos.interfaces.IDatosPaciente;
-import org.marcos.util.EntityManagerGetter;
+import org.marcos.util.EntityManagerFactory;
 
 /**
  *
  * @author natsu
- * @param <Paciente> el paciente a guardar
  */
-class PacienteDAO<T> implements IDatosPaciente {
+public class PacienteDAO implements IDatosPaciente {
 
     @Override
     public Paciente guardar(Paciente obj) {
-        var entityManager = EntityManagerGetter.getEntityManager();
         
-        entityManager.getTransaction().begin();
-        entityManager.persist(obj);
-        entityManager.getTransaction().commit();
-        
+        try (var entityManager = EntityManagerFactory.createInstance()) {
+            entityManager.getTransaction().begin();
+            entityManager.persist(obj);
+            entityManager.getTransaction().commit();
+        }
+
         return obj;
     }
 
     @Override
     public Paciente obtener(Long id) {
-        var entityManager = EntityManagerGetter.getEntityManager();
-        
-        Paciente p = entityManager.find(Paciente.class, id);
-        
+        Paciente p;
+        try (var entityManager = EntityManagerFactory.createInstance()) {
+            p = entityManager.find(Paciente.class, id);
+        }
         return p;
     }
 
     @Override
     public List<Paciente> obtenerTodos() {
-        var entityManager = EntityManagerGetter.getEntityManager();
-        
+        var entityManager = EntityManagerFactory.createInstance();
+
         return null;
     }
 
-  
-
-    
-    
 }

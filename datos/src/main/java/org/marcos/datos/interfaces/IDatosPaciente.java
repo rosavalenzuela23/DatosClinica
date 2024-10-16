@@ -17,5 +17,4 @@ public interface IDatosPaciente {
     public Paciente obtener(Long id);
     public List<Paciente> obtenerTodos();
     
-    
 }
