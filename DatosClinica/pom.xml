@@ -11,4 +11,35 @@
         <maven.compiler.target>21</maven.compiler.target>
         <exec.mainClass>org.marcos.datosclinica.DatosClinica</exec.mainClass>
     </properties>
+    <dependencies>
+        
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.3.1.Final</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.6.1.Final</version>
+        </dependency>
+                        
+        <!-- https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api -->
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+        
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>Entidadesv2</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        
+    </dependencies>
+    
 </project>

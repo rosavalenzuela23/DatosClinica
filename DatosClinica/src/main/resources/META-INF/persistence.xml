@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="ConectaContigoPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <class>org.marcos.Entidades.Administrador</class>
+    <class>org.marcos.Entidades.CartaConcentimiento</class>
+    <class>org.marcos.Entidades.ComentarioSesion</class>
+    <class>org.marcos.Entidades.Diagnostico</class>
+    <class>org.marcos.Entidades.Empleado</class>
+    <class>org.marcos.Entidades.Expediente</class>
+    <class>org.marcos.Entidades.FamiliarConfianza</class>
+    <class>org.marcos.Entidades.Instrumento</class>
+    <class>org.marcos.Entidades.IntegranteHogar</class>
+    <class>org.marcos.Entidades.Medicamento</class>
+    <class>org.marcos.Entidades.MedicamentoDelExpediente</class>
+    <class>org.marcos.Entidades.Paciente</class>
+    <class>org.marcos.Entidades.Problema</class>
+    <class>org.marcos.Entidades.Psicologo</class>
+    <class>org.marcos.Entidades.Recepcionista</class>
+    <class>org.marcos.Entidades.Respuesta</class>
+    <class>org.marcos.Entidades.Sesion</class>
+    <properties>
+      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/conecta_contigo_consultorio?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <property name="jakarta.persistence.jdbc.user" value="root"/>
+      <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="jakarta.persistence.jdbc.password" value="123"/>
+    </properties>
+  </persistence-unit>
+  <persistence-unit name="PU2" transaction-type="RESOURCE_LOCAL">
+    <properties>
+      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/conecta_contigo_consultorio?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <property name="jakarta.persistence.jdbc.user" value="root"/>
+      <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="jakarta.persistence.jdbc.password" value="123"/>
+    </properties>
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>org.marcos.Entidades.Administrador</class>
+    <class>org.marcos.Entidades.CartaConcentimiento</class>
+    <class>org.marcos.Entidades.ComentarioSesion</class>
+    <class>org.marcos.Entidades.Diagnostico</class>
+    <class>org.marcos.Entidades.Empleado</class>
+    <class>org.marcos.Entidades.Expediente</class>
+    <class>org.marcos.Entidades.FamiliarConfianza</class>
+    <class>org.marcos.Entidades.Instrumento</class>
+    <class>org.marcos.Entidades.IntegranteHogar</class>
+    <class>org.marcos.Entidades.Medicamento</class>
+    <class>org.marcos.Entidades.MedicamentoDelExpediente</class>
+    <class>org.marcos.Entidades.Paciente</class>
+    <class>org.marcos.Entidades.Problema</class>
+    <class>org.marcos.Entidades.Psicologo</class>
+    <class>org.marcos.Entidades.Recepcionista</class>
+    <class>org.marcos.Entidades.Respuesta</class>
+    <class>org.marcos.Entidades.Sesion</class>
+  </persistence-unit>
+</persistence>

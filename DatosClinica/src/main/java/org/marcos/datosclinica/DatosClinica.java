@@ -4,6 +4,9 @@
 
 package org.marcos.datosclinica;
 
+import org.marcos.Entidades.Paciente;
+import org.marcos.datos.interfaces.IDatosPaciente;
+
 /**
  *
  * @author natsu
@@ -11,6 +14,13 @@ package org.marcos.datosclinica;
 public class DatosClinica {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+        IDatosPaciente daopaciente = new PacienteDAO();
+        
+        var p = new Paciente();
+        p.setNombre("rosa");
+        
+        daopaciente.guardar(p);
+        
     }
 }
