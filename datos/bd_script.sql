@@ -21,7 +21,7 @@ create table pacientes(
     apellido_materno VARCHAR(100),
     vivienda ENUM('LOCAL', 'FORANEO'),
     escolaridad VARCHAR(255),
-    estado_civil ENUM('CASADO', 'SOLTERO'),
+    estado_civil ENUM('CASADO', 'SOLTERO', 'VIUDO', 'DIVORCIADO', 'UNIONLIBRE'),
     telefono VARCHAR(100),
     telefono_emergencia VARCHAR(100)
 );
@@ -46,23 +46,15 @@ create table administradores(
     FOREIGN KEY(id_psicologo) REFERENCES psicologos(id)
 );
 
-
-create table diagnosticos(
-	id INT AUTO_INCREMENT PRIMARY KEY, 
-    titulo VARCHAR(255),
-    descripcion VARCHAR(2000)
-);
-
 create table expediente_paciente(
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	motivo_consulta VARCHAR(2000),
     antecedentes VARCHAR(2000),
     enfermedad_previa VARCHAR(2000),
     pregunta_magica VARCHAR(2000),
+    diagnostico VARCHAR(2000),
     id_paciente INT,
-    id_diagnostico INT,
-    FOREIGN KEY(id_paciente) REFERENCES pacientes(id),
-    FOREIGN KEY(id_diagnostico) REFERENCES diagnosticos(id)
+    FOREIGN KEY(id_paciente) REFERENCES pacientes(id)
 );
 
 
