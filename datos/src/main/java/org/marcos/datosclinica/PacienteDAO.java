@@ -4,8 +4,10 @@
  */
 package org.marcos.datosclinica;
 
+import java.sql.SQLException;
 import java.util.List;
 import org.marcos.Entidades.Paciente;
+import org.marcos.Entidades.Psicologo;
 import org.marcos.datos.interfaces.IDatosPaciente;
 import org.marcos.util.EntityManagerFactory;
 
@@ -41,6 +43,21 @@ public class PacienteDAO implements IDatosPaciente {
         var entityManager = EntityManagerFactory.createInstance();
 
         return null;
+    }
+    
+    public List<Paciente> obtenerPacientesDelPsicologo(Long id) {
+        List<Paciente> listaPacientes = null;
+        
+        try (var entityManager = EntityManagerFactory.createInstance()) {
+            var psicologo = entityManager.find(Psicologo.class, id);
+            listaPacientes = psicologo.getPacientes();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return listaPacientes;
     }
 
 }
