@@ -24,13 +24,13 @@ public class SesionDAO {
         return s;
     }
 
-    public List<Sesion> obtenerSesiones(Expediente p) {
+    public List<Sesion> obtenerSesiones(Long expedienteId) {
         List<Sesion> sesiones;
 
         try (var manager = EntityManagerFactory.createInstance()) {
             sesiones = manager.createQuery(
                     "SELECT s FROM Sesion s WHERE s.expediente.id = :id"
-            ).setParameter("id", p.getId()).getResultList();
+            ).setParameter("id", expedienteId).getResultList();
         }
 
         return sesiones;

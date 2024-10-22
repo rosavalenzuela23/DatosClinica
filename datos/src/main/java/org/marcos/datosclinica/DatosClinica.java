@@ -20,9 +20,9 @@ public class DatosClinica {
         var expediente = new Expediente();
         expediente.setId(2L);
         
-        for(Sesion s : dao.obtenerSesiones(expediente)) {
-            System.out.println(s.getId());
-        }
+//        for(Sesion s : dao.obtenerSesiones(expediente)) {
+//            System.out.println(s.getId());
+//        }
         
     }
 }
