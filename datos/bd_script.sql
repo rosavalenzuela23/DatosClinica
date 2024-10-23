@@ -22,6 +22,7 @@ create table pacientes(
     vivienda ENUM('LOCAL', 'FORANEO'),
     escolaridad VARCHAR(255),
     estado_civil ENUM('CASADO', 'SOLTERO', 'VIUDO', 'DIVORCIADO', 'UNIONLIBRE'),
+	fecha_nacimiento DATE,
     telefono VARCHAR(100),
     telefono_emergencia VARCHAR(100)
 );
