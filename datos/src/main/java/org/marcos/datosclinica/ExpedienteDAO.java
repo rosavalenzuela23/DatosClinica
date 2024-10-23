@@ -7,6 +7,7 @@ package org.marcos.datosclinica;
 import jakarta.persistence.EntityManager;
 import java.util.List;
 import org.marcos.Entidades.Expediente;
+import org.marcos.Entidades.Paciente;
 import org.marcos.util.EntityManagerFactory;
 
 /**
@@ -48,6 +49,15 @@ public class ExpedienteDAO {
             manager.getTransaction().begin();
             manager.merge(exp);
             manager.getTransaction().commit();
+        }
+        return exp;
+    }
+    
+    public Expediente obtenerExpedientePorIdPaciente(Long id) {
+        Expediente exp;
+        try(EntityManager manager = EntityManagerFactory.createInstance()) {
+            var paciente = manager.find(Paciente.class, id);
+            exp = paciente.getExpediente();
         }
         return exp;
     }
