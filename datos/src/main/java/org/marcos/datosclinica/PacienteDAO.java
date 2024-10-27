@@ -60,4 +60,19 @@ public class PacienteDAO implements IDatosPaciente {
         return listaPacientes;
     }
 
+    public Paciente actualizarPaciente(Paciente p) {
+        try (var entityManager = EntityManagerFactory.createInstance()) {
+            
+            var pacienteHelper = entityManager.find(Paciente.class, p.getId());
+            
+            p.setPsicologos(pacienteHelper.getPsicologos());
+            p.setExpediente(pacienteHelper.getExpediente());
+            
+            entityManager.getTransaction().begin();
+            entityManager.merge(p);
+            entityManager.getTransaction().commit();
+        }
+        return p;
+    }
+    
 }

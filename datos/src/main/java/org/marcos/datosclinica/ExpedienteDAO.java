@@ -46,6 +46,23 @@ public class ExpedienteDAO {
     
     public Expediente actualizarExpediente(Expediente exp) {
         try(var manager = EntityManagerFactory.createInstance()) {
+            
+            var expedienteHelper = manager.find(Expediente.class, exp.getId());
+            
+            exp.setPaciente(expedienteHelper.getPaciente());
+            
+            if (exp.getIntegranteHogar() != null) {
+                for(var integranteHogar : exp.getIntegranteHogar()) {
+                    integranteHogar.setExpediente(exp);
+                }
+            }
+            
+            if (exp.getFamiliaresConfianza()!= null) {
+                for(var familiarConfianza : exp.getFamiliaresConfianza()) {
+                    familiarConfianza.setExpediente(exp);
+                }
+            }
+            
             manager.getTransaction().begin();
             manager.merge(exp);
             manager.getTransaction().commit();
