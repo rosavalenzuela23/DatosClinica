@@ -51,6 +51,7 @@ create table expediente_paciente(
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	motivo_consulta VARCHAR(2000),
     antecedentes VARCHAR(2000),
+    deseo varchar(2000),
     enfermedad_previa VARCHAR(2000),
     pregunta_magica VARCHAR(2000),
     diagnostico VARCHAR(2000),
@@ -68,7 +69,7 @@ create table cartas_consentimiento(
 
 create table integrantes_hogar(
 	id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100),
+    nombre VARCHAR(200),
     parentesco VARCHAR(100),
     status_relacion VARCHAR(255),
     ocupacion_escolaridad VARCHAR(400),
@@ -95,9 +96,7 @@ create table medicamento_del_expediente(
 
 create table familiares_confianza(
 	id INT AUTO_INCREMENT PRIMARY KEY,
-    nombres VARCHAR(100),
-    apellido_paterno VARCHAR(100),
-    apellido_materno VARCHAR(100),
+    nombres VARCHAR(200),
     parentesco VARCHAR(100),
     telefono VARCHAR(100),
     id_expediente INT,
@@ -132,7 +131,6 @@ create table comentarios_sesion(
     aspecto_a_medir VARCHAR(255),
 	valoracion_inicio INT,
     valoracion_fin INT,
-    fecha_hora DATETIME,
     id_sesion INT,
     FOREIGN KEY (id_sesion) REFERENCES sesiones(id)
 );
@@ -145,6 +143,7 @@ create table problemas(
     afectacion_espiritual TINYINT,
     afectacion_laboral TINYINT,
     afectacion_pareja TINYINT,
+    afectacion_economico TINYINT,
     Intensidad INT,
     frecuencia VARCHAR(255),
     descripcion VARCHAR(255),
