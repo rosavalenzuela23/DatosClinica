@@ -55,6 +55,7 @@ create table expediente_paciente(
     enfermedad_previa VARCHAR(2000),
     pregunta_magica VARCHAR(2000),
     diagnostico VARCHAR(2000),
+    medicamentos VARCHAR(2000),
     id_paciente INT,
     FOREIGN KEY(id_paciente) REFERENCES pacientes(id)
 );
