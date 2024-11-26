@@ -1,0 +1,13 @@
+C:\Users\luis-\OneDrive\Documents\GitHub\DatosClinica\datos\src\main\java\org\marcos\datos\interfaces\IDatosCartaConsentimiento.java
+C:\Users\luis-\OneDrive\Documents\GitHub\DatosClinica\datos\src\main\java\org\marcos\datos\interfaces\IDatosEmpleado.java
+C:\Users\luis-\OneDrive\Documents\GitHub\DatosClinica\datos\src\main\java\org\marcos\datos\interfaces\IDatosPaciente.java
+C:\Users\luis-\OneDrive\Documents\GitHub\DatosClinica\datos\src\main\java\org\marcos\datos\interfaces\IDatosPsicologo.java
+C:\Users\luis-\OneDrive\Documents\GitHub\DatosClinica\datos\src\main\java\org\marcos\datos\interfaces\IDatosRecepcionista.java
+C:\Users\luis-\OneDrive\Documents\GitHub\DatosClinica\datos\src\main\java\org\marcos\datosclinica\CartaConsentimientoDAO.java
+C:\Users\luis-\OneDrive\Documents\GitHub\DatosClinica\datos\src\main\java\org\marcos\datosclinica\DatosClinica.java
+C:\Users\luis-\OneDrive\Documents\GitHub\DatosClinica\datos\src\main\java\org\marcos\datosclinica\EmpleadoDAO.java
+C:\Users\luis-\OneDrive\Documents\GitHub\DatosClinica\datos\src\main\java\org\marcos\datosclinica\ExpedienteDAO.java
+C:\Users\luis-\OneDrive\Documents\GitHub\DatosClinica\datos\src\main\java\org\marcos\datosclinica\PacienteDAO.java
+C:\Users\luis-\OneDrive\Documents\GitHub\DatosClinica\datos\src\main\java\org\marcos\datosclinica\PsicologoDAO.java
+C:\Users\luis-\OneDrive\Documents\GitHub\DatosClinica\datos\src\main\java\org\marcos\datosclinica\SesionDAO.java
+C:\Users\luis-\OneDrive\Documents\GitHub\DatosClinica\datos\src\main\java\org\marcos\util\EntityManagerFactory.java
