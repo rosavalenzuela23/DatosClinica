@@ -8,6 +8,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
@@ -86,9 +87,9 @@ public class CartaConsentimientoDAO implements IDatosCartaConsentimiento {
     public byte[] convertirArchivoRutaEnBytes(byte[] datos, String rutaArchivo) throws IOException {
      File archivo = new File(rutaArchivo);
 
-    try (FileOutputStream fos = new FileOutputStream(archivo)) {
-        fos.write(datos);
-    }
+        try (FileOutputStream fos = new FileOutputStream(archivo)) {
+            fos.write(datos);
+        }
         return datos;
     }
 
@@ -113,4 +114,22 @@ public class CartaConsentimientoDAO implements IDatosCartaConsentimiento {
         }
         return pacientesSinCarta;
     }
+
+    public String sacarFechaHoy() {
+        LocalDate fechaHoy = LocalDate.now();
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String fechaHoyString = fechaHoy.format(formato);
+        return fechaHoyString;
+    }
+    
+     public byte[] archivoABytesConStream(String rutaArchivo) throws IOException {
+        File archivo = new File(rutaArchivo);
+
+        try (FileInputStream fis = new FileInputStream(archivo)) {
+            byte[] datos = new byte[(int) archivo.length()];
+            fis.read(datos); 
+            return datos;
+        }
+    }
+
 }

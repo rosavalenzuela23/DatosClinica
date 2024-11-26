@@ -15,6 +15,7 @@ import org.marcos.Entidades.EstadoCivil;
 import org.marcos.Entidades.Expediente;
 import org.marcos.Entidades.Paciente;
 import org.marcos.Entidades.Psicologo;
+import org.marcos.Entidades.Recepcionista;
 import org.marcos.Entidades.TipoVivienda;
 import org.marcos.Entidades.Recepcionista;
 

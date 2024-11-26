@@ -3,6 +3,7 @@ org\marcos\datos\interfaces\IDatosRecepcionista.class
 org\marcos\util\EntityManagerFactory.class
 org\marcos\datosclinica\EmpleadoDAO.class
 org\marcos\datosclinica\CartaConsentimientoDAO.class
+org\marcos\datosclinica\RecepcionistaDAO.class
 org\marcos\datosclinica\ExpedienteDAO.class
 org\marcos\datos\interfaces\IDatosPsicologo.class
 org\marcos\datosclinica\DatosClinica.class

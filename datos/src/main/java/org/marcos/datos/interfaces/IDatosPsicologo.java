@@ -20,9 +20,9 @@ public interface IDatosPsicologo {
 
     public Psicologo agregarPsicologo(Psicologo psi, Empleado emp);
 
-    public Psicologo actualizarPsicologo(Psicologo obj);
+    public boolean actualizarPsicologo(Empleado obj);
 
-    public Psicologo eliminarPsicologo(Psicologo obj);
+    public boolean eliminarPsicologo(Empleado obj);
 
     public List<Empleado> buscarPsicologoPorNombre(String nombre);
 
