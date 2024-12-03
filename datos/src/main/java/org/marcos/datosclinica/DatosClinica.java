@@ -9,10 +9,12 @@ import DTOEntidades.DTOPaciente;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import org.marcos.Entidades.Administrador;
 import org.marcos.Entidades.CartaConcentimiento;
 import org.marcos.Entidades.EstadoCivil;
 import org.marcos.Entidades.Expediente;
 import org.marcos.Entidades.Paciente;
+import org.marcos.Entidades.Psicologo;
 import org.marcos.Entidades.TipoVivienda;
 import org.marcos.Entidades.Recepcionista;
 
@@ -24,9 +26,23 @@ public class DatosClinica {
 
     public static void main(String[] args) throws IOException {
         
-//        Recepcionista r = new Recepcionista();
-//        r.setUsuario("chamber");
-//        r.setContrasenia("chamber123");
-//        rdao.registrarRecepcionista(r);
+        PsicologoDAO pdao = new PsicologoDAO();
+        
+        Psicologo test = new Psicologo();
+        test.setUsuario("curry");
+        test.setContrasenia("777");
+        pdao.registrarPsicologo(test);
+        AdministradorDAO adao = new AdministradorDAO();
+        Administrador test2 = new Administrador();
+        test2.setUsuario("admin");
+        test2.setContrasenia("admin");
+        adao.registrarAdministrador(test2);
+        
+        RecepcionistaDAO rdao = new RecepcionistaDAO();
+        Recepcionista test3 = new Recepcionista();
+        test3.setUsuario("chamber");
+        test3.setContrasenia("888");
+        rdao.registrarRecepcionista(test3);
+        
     }
 }

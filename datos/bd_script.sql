@@ -43,8 +43,8 @@ create table recepcionistas(
 
 create table administradores(
 	id INT AUTO_INCREMENT PRIMARY KEY,
-	id_psicologo INT,
-    FOREIGN KEY(id_psicologo) REFERENCES psicologos(id)
+	id_empleado INT,
+    FOREIGN KEY(id_empleado) REFERENCES empleados(id)
 );
 
 create table expediente_paciente(
