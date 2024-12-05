@@ -5,6 +5,7 @@
 package org.marcos.datosclinica;
 
 import jakarta.persistence.EntityManager;
+import java.util.List;
 import org.marcos.Entidades.Empleado;
 import org.marcos.util.EntityManagerFactory;
 
@@ -35,5 +36,38 @@ public class EmpleadoDAO {
         }
         return emp;
     }
+    
+    public List<Empleado> obtenerEmpleados(){
+        List<Empleado> empleados = null;
+        try (jakarta.persistence.EntityManager manager = EntityManagerFactory.createInstance()) {
+            String jakartaQuery = "SELECT emp FROM Empleado emp";
+            empleados = manager.createQuery(jakartaQuery, Empleado.class).getResultList();
+        } catch (Exception e) {
+            System.out.println("Error al obtener empleados: " + e.getMessage());
+        }
+        return empleados;
+    }
+    
+    public Empleado eliminarEmpleado(Long id) {
+        
+        try (var manager = EntityManagerFactory.createInstance()) {
+            
+            Empleado empleadoExistente = manager.find(Empleado.class, id);
+            if (empleadoExistente == null) {
+                throw new IllegalArgumentException("No se encontró un empleado con el ID especificado.");
+            }
+
+            
+            manager.getTransaction().begin();
+            empleadoExistente.setEstado(false); 
+            manager.merge(empleadoExistente); 
+            manager.getTransaction().commit();
+
+           
+            return empleadoExistente;
+        }
+    }
+
+
 
 }

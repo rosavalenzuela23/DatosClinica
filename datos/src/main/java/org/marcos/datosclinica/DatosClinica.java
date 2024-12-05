@@ -28,21 +28,22 @@ public class DatosClinica {
         
         PsicologoDAO pdao = new PsicologoDAO();
         
-        Psicologo test = new Psicologo();
-        test.setUsuario("curry");
-        test.setContrasenia("777");
-        pdao.registrarPsicologo(test);
+//        Psicologo test = new Psicologo();
+//        test.setUsuario("curry");
+//        test.setContrasenia("777");
+//        pdao.registrarPsicologo(test);
         AdministradorDAO adao = new AdministradorDAO();
         Administrador test2 = new Administrador();
-        test2.setUsuario("admin");
-        test2.setContrasenia("admin");
+        test2.setUsuario("guest");
+        test2.setContrasenia("guest");
+        test2.setEstado(false);
         adao.registrarAdministrador(test2);
         
-        RecepcionistaDAO rdao = new RecepcionistaDAO();
-        Recepcionista test3 = new Recepcionista();
-        test3.setUsuario("chamber");
-        test3.setContrasenia("888");
-        rdao.registrarRecepcionista(test3);
+//        RecepcionistaDAO rdao = new RecepcionistaDAO();
+//        Recepcionista test3 = new Recepcionista();
+//        test3.setUsuario("chamber");
+//        test3.setContrasenia("888");
+//        rdao.registrarRecepcionista(test3);
         
     }
 }

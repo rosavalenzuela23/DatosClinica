@@ -5,7 +5,8 @@ use conecta_contigo_consultorio;
 create table empleados(
 	id INT AUTO_INCREMENT PRIMARY KEY,
     nombre_usuario VARCHAR(70),
-    contrasenia VARCHAR(255)
+    contrasenia VARCHAR(255), 
+     estado TINYINT(1) DEFAULT 1
 );
 
 create table psicologos (

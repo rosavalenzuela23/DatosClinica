@@ -32,4 +32,28 @@ public class AdministradorDAO {
         }
         return adm;
     }
+     
+    public Administrador actualizarAdministrador(Administrador nuevosDatos) {
+        try (var manager = EntityManagerFactory.createInstance()) {
+
+            
+            Administrador administradorExistente = manager.find(Administrador.class, nuevosDatos.getId());
+            if (administradorExistente == null) {
+                throw new IllegalArgumentException("No se encontró un psicólogo con el ID especificado.");
+            }
+
+           
+            if (nuevosDatos.getUsuario() != null) {
+                administradorExistente.setUsuario(nuevosDatos.getUsuario());
+            }
+            if (nuevosDatos.getContrasenia() != null) {
+                administradorExistente.setContrasenia(nuevosDatos.getContrasenia());
+            }
+
+            manager.getTransaction().begin();
+            manager.merge(administradorExistente);
+            manager.getTransaction().commit();
+        }
+        return nuevosDatos;
+    }
 }
