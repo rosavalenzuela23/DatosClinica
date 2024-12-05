@@ -6,6 +6,7 @@ package org.marcos.datosclinica;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -21,6 +22,7 @@ import org.marcos.util.EntityManagerFactory;
  */
 public class CartaConsentimientoDAO implements IDatosCartaConsentimiento {
 
+    @Override
     public List<Paciente> buscarPacientesSinCarta() {
         List<Paciente> pacientesSinCarta;
         try (jakarta.persistence.EntityManager manager = EntityManagerFactory.createInstance()) {
@@ -39,15 +41,37 @@ public class CartaConsentimientoDAO implements IDatosCartaConsentimiento {
         return cc;
     }
 
+    private void escribirArchivo(String ruta, byte[] contenido) throws IOException {
+        
+        File f = new File("expedientes");
+        
+        if(!f.exists()) {
+            f.mkdir();
+        }
+        
+        File file = new File(ruta);
+        file.createNewFile();
+        
+        try (BufferedOutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+            os.write(contenido);
+        } catch (IOException e){
+            throw e;
+        }
+        
+    }
+    
     @Override
-    public boolean guardar(Paciente paciente, CartaConcentimiento carta, String rutaArchivo) {
+    public boolean guardar(Paciente paciente, CartaConcentimiento carta, byte[] cartaEnBytes) throws IOException {
+        
+        escribirArchivo(carta.getRutaArchivo(), cartaEnBytes);
+        
         try (EntityManager entityManager = EntityManagerFactory.createInstance()) {
 
-            carta.setRutaArchivo(rutaArchivo);
             entityManager.getTransaction().begin();
-            paciente.setCarta(carta);
-            carta.setPaciente(paciente);
-            entityManager.merge(paciente);
+            var p = entityManager.find(Paciente.class, paciente.getId());
+            p.setCarta(carta);
+            carta.setPaciente(p);
+            entityManager.merge(p);
             entityManager.merge(carta);
             entityManager.getTransaction().commit();
 

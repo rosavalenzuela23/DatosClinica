@@ -15,7 +15,7 @@ import org.marcos.Entidades.Paciente;
  */
 public interface IDatosCartaConsentimiento {
     
-    public boolean guardar(Paciente paciente, CartaConcentimiento carta, String rutaArchivo);
+    public boolean guardar(Paciente paciente, CartaConcentimiento carta, byte[] cartaEnBytes) throws IOException;
     public CartaConcentimiento obtenerCarta (Long id);
     public List<Paciente>obtenerTodos();
     public byte[]convertirArchivoRutaEnBytes(byte[] datos, String rutaArchivo) throws IOException;
