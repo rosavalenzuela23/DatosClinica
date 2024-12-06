@@ -19,7 +19,7 @@ public interface IDatosEmpleado {
 
     public Empleado actualizarEmpleado(Empleado obj);
 
-    public Empleado eliminarEmpleado(Empleado obj);
+    public boolean eliminarEmpleado(Empleado obj);
 
     public List<Empleado> buscarEmpleadoPorNombre(String nombre);
 
