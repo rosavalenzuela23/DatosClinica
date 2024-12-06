@@ -40,9 +40,13 @@ public class PacienteDAO implements IDatosPaciente {
 
     @Override
     public List<Paciente> obtenerTodos() {
-        var entityManager = EntityManagerFactory.createInstance();
-
-        return null;
+        List<Paciente> pacientes;
+        
+        try(var entityManager = EntityManagerFactory.createInstance()) {
+            pacientes = entityManager.createQuery("SELECT p FROM Paciente p").getResultList();
+        }
+        
+        return pacientes;
     }
     
     public List<Paciente> obtenerPacientesDelPsicologo(Long id) {

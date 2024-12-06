@@ -5,8 +5,11 @@
 package org.marcos.datosclinica;
 
 import jakarta.persistence.EntityManager;
+import java.util.LinkedList;
+import java.util.List;
 import org.marcos.util.EntityManagerFactory;
 import org.marcos.Entidades.Psicologo;
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 /**
  *
@@ -79,6 +82,19 @@ public class PsicologoDAO {
         }
     }
 
+    public List<Psicologo> obtenerTodos() {
+        List<Psicologo> psicologos;
+        
+        try(EntityManager manager = EntityManagerFactory.createInstance()) {
+            manager.getTransaction().begin();
+                psicologos = manager.createQuery(
+                        "SELECT p FROM Psicologo p"
+                ).getResultList();
+            manager.getTransaction().commit();
+        }
+        
+        return psicologos;
+    }
 
     
 }
