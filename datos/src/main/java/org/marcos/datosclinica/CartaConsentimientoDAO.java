@@ -71,8 +71,7 @@ public class CartaConsentimientoDAO implements IDatosCartaConsentimiento {
             var p = entityManager.find(Paciente.class, paciente.getId());
             p.setCarta(carta);
             carta.setPaciente(p);
-            entityManager.merge(p);
-            entityManager.merge(carta);
+            entityManager.persist(carta);
             entityManager.getTransaction().commit();
 
             return true;
